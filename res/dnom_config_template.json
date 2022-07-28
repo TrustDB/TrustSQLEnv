@@ -1,0 +1,19 @@
+{
+	"PublicDNOMParameters":
+	{
+		"dataFolderPath":"./raw_trasnactions",
+		"dataFileSizeMB":"256",
+		"transactionDownloadLimit":"50000",
+		"dnomServicePort":"10001",
+		"publisherSleepTime":"100",
+		"subscriberSleepTime":"10"
+	},
+	"ServiceConfig":
+	[			
+		{
+			"serviceName":"@issuer_name/@servicne_name",
+			"tossAddrs":"@tossAddrs",
+			"rdlmsAddrs":"@rdlmsConnectString"
+		  }
+	]
+}

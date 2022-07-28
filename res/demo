@@ -1,0 +1,65 @@
+RDLMS_CLASSPATH="${RDLMSPATH}/libs/trustsql_rdlms_commnuity_v0.1.jar:${RDLMSPATH}/libs/json-simple-1.1.1.jar:${RDLMSPATH}/libs/log4j-api-2.14.1.jar:${RDLMSPATH}/libs/log4j-core-2.14.1.jar:${RDLMSPATH}/libs/log4j-1.2-api-2.14.1.jar:${RDLMSPATH}/libs/mariadb-java-client-2.7.2.jar"
+
+
+echo -e "#############################################################"
+echo -e "#   Copyright © 2021.11 TrustDB ( www.trust-db.com )        #"
+echo -e "#	 All rights reserved                                 #"
+echo -e "#                                                           #"
+echo -e "#   DEMO Launcher                                           #"
+echo -e "#                                                           #"
+echo -e "#   Create Date : 2021/11/14                                #"
+echo -e "#############################################################"
+echo -e ""
+
+
+if [ $# -ne 1 ]
+then
+echo -e "============================================================="
+echo -e "Demo Application List"
+echo -e "============================================================="
+echo -e "[NFT VOUCHER]"
+echo -e "1 Mebership Management"
+echo -e "2 Deploying NFT Voucher & Minting"
+echo -e "3 Deploying NFT Voucher Trsnactions & Making Transactions"
+echo -e ""
+echo -e "[POINT ANYONE]"
+echo -e "4 Deploying POINT & Minting"
+echo -e "5 Making Transactions"
+echo -e ""
+echo -e "[POINT MEMBERSHIP]"
+echo -e "6 Deploying POINT & MEMBERSHIP, & Minting"
+echo -e "7 Making Transactions"
+echo -e ""
+echo -e "[POINT ANYONE ESCROW]"       
+echo -e "8 Deploying POINT, ESCROW & MEMBERSHIP, & Minting"       
+echo -e "9 Making Transations"
+echo -e "-------------------------------------------------------------"
+echo -e "[USAGE]./demo no"
+echo ""       
+exit
+fi
+
+application=""
+
+if [ $1 -eq 1 ]; then
+       application="org.rdlms.demo.nft.voucher.RegistMembers";
+elif [ $1 -eq 2 ]; then
+       application="org.rdlms.demo.nft.voucher.VoucherIssuer";
+elif [ $1 -eq 3 ]; then
+       application="org.rdlms.demo.nft.voucher.VoucherTransactions";
+elif [ $1 -eq 4 ]; then
+       application="org.rdlms.demo.pointsystem.anyone.TokenIssuer";
+elif [ $1 -eq 5 ]; then
+       application="org.rdlms.demo.pointsystem.anyone.TokenWallet";
+elif [ $1 -eq 6 ]; then
+       application="org.rdlms.demo.pointsystem.membership.TokenIssuer";
+elif [ $1 -eq 7 ]; then
+       application="org.rdlms.demo.pointsystem.membership.TokenWallet";
+elif [ $1 -eq 8 ]; then
+       application="org.rdlms.demo.pointsystem.anyone.escrow.TokenIssuer";
+elif [ $1 -eq 9 ]; then
+       application="org.rdlms.demo.pointsystem.anyone.escrow.TokenWallet";
+fi
+
+#echo "RDLMS_CLASSPATH=" ${RDLMS_CLASSPATH}
+java -cp ${RDLMS_CLASSPATH} ${application}

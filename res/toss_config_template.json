@@ -1,0 +1,22 @@
+{
+	"TOSSParameters":
+	{
+		"publish_service_port":"20001",
+		"subscribe_service_port":"20002",
+		"dataFolderPath":"./raw_transactions",
+		"dataFileSizeMB":"256",
+		"transactionDownloadLimit":"5000"
+	},
+	"ServiceConfig":
+	[
+		{
+			"serviceName":"@issuer_name/@service_name", 
+			"keyFileNamePath":"@tosa_pubkey_file_name",
+			"whitelist_node":
+			[
+				{"addr":"127.0.0.1"}, 
+				{"addr":"127.0.0.2"}
+			]
+		}   
+	]	
+}

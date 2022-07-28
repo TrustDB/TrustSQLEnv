@@ -1,0 +1,17 @@
+#!/bin/bash
+
+RDLMS_CLASSPATH="${RDLMSPATH}/libs/trustsql_rdlms_commnuity_v0.1.jar:${RDLMSPATH}/libs/json-simple-1.1.1.jar:${RDLMSPATH}/libs/log4j-api-2.14.1.jar:${RDLMSPATH}/libs/log4j-core-2.14.1.jar:${RDLMSPATH}/libs/log4j-1.2-api-2.14.1.jar:${RDLMSPATH}/libs/mariadb-java-client-2.7.2.jar"
+
+if [ $# -ne 1 ]
+then
+       echo -e "You missed input config file name!"
+       echo -e "[USAGE] ~/dnom config_name.json"
+       echo ""       
+       exit
+fi
+
+echo "RDLMS_CLASSPATH=" ${RDLMS_CLASSPATH}
+echo "RDLMSPATH=" ${RDLMSPATH}
+echo "RDLMSBIN=" ${RDLMSBIN}
+
+java -cp ${RDLMS_CLASSPATH} -Dlog4j.configuration=file:${RDLMSBIN}/log.properties org.rdlms.dnom.server.PublicDNOM $1
